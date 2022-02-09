@@ -1,5 +1,0 @@
-module Bird_Vertical(state, Clock, reset, fly);
-  input Clock, reset;
-  input fly;
-  output state;
-  
