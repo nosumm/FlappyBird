@@ -1,0 +1,18 @@
+// generates 
+module gap(clock, reset, height, size);
+  input logic clock, reset;
+  output logic [2:0] size, height;
+
+// generate random gap
+	logic [2:0] gap_top;  // random 3 bit gap top index between 0-7
+	LFSR_3bit random_top(.clock(clock), .reset(reset), .Out(gap_top));
+	
+	logic [2:0] gap_size; // random 3 bit gap size between 0-7
+	LFSR_3bit random_size(.clock(clock), .reset(reset), .Out(gap_size));
+	
+	
+	
+	
+	
+	
+endmodule

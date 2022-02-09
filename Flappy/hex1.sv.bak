@@ -1,0 +1,36 @@
+module hex1(Clock, Reset, counter1, counter2, hex1, hex2);
+  input Clock, Reset;
+  input [2:0] counter1, counter2; // 3 bit counter
+  reg [6:0] PS, NS;
+  output reg [6:0] hex1, hex2; // 7 seg displays
+  
+  parameter [6:0] zero = 7'b1000000, 	one = 7'b1111001,		two = 7'b0100100, three = 7'b0110000,
+						four = 7'b0011001, 	five = 7'b0010010, six = 7'b0000010, 	seven = 7'b1111000; eight = 7'b0000000; nine = 7'b0011000;
+  
+  always @(*) begin
+    case (counter1)
+			3'b000:	hex1 = zero;
+			3'b001:	hex1 = one;
+			3'b010:	hex1 = two;
+			3'b011:	hex1 = three;
+			3'b100:	hex1 = four;
+			3'b101:	hex1 = five;
+			3'b110:	hex1 = six;
+			3'b111:	hex1 = seven;
+			//default: hex1 = 7'bxxxxxxx;
+	 endcase
+	 
+    case (counter2)
+			3'b000:	hex2 = zero;
+			3'b001:	hex2 = one;
+			3'b010:	hex2 = two;
+			3'b011:	hex2 = three;
+			3'b100:	hex2 = four;
+			3'b101:	hex2 = five;
+			3'b110:	hex2 = six;
+			3'b111:	hex2 = seven;
+			//default: hex2 = 7'bxxxxxxx;
+	 endcase
+  end
+
+endmodule
